@@ -20,6 +20,7 @@ useEffect(()=>{
     const res= await fetch("http://localhost:5000/tasks")
     const data=await res.json()
     setTasks(data)
+    console.log(data)
   }
   fetchData();
 

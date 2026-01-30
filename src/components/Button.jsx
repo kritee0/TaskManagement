@@ -6,8 +6,8 @@ const TaskButton = ({ text, onClick, primary,  icon,  count,className = "" }) =>
       <button
         onClick={onClick}
      
-        className={`px-4 py-2 rounded-full border border-gray-300 bg-black text-sm min-w-[100] text-gray-800
-          ${primary ? " text-gray-800 hover:bg-gray-500" : " hover:bg-gray-500 hover:text-white text-white"} 
+        className={`px-4 py-2 rounded-md border border-gray-300 bg-black text-sm min-w-[100] text-gray-800
+          ${primary ? " text-white hover:bg-gray-500" : " hover:bg-gray-500 hover:text-white text-white"} 
           transition-all ${className}`}
       >
         <div className='flex flex-col items-center justify-center'>

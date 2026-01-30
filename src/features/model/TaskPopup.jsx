@@ -1,16 +1,20 @@
-import React from 'react'
-import { Children } from 'react'
+import React from "react";
 
-const TaskPopup = ({close,children}) => {
- 
+const TaskPopup = ({ close, children, className = "" }) => {
   return (
-    <>   
-    <div className='fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-white/50 backdrop:bg-transparent   flex items-center justify-center z-30'  onClick={close}>       
+    <div
+      className="fixed inset-0 bg-black/40 flex items-center justify-center z-50"
+      onClick={close}
+    >
+      <div
+        className={`bg-white rounded-2xl w-full max-w-lg p-6 ${className}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {children}
+      </div>
     </div>
-      <div className='relative  max-w-full w-full h-full bg-gray-900 rounded-2xl border-0 border-gray-500 flex   z-80'>
-      {children}
-    </div>
-    </>
-  )
-}
-export default TaskPopup
+  );
+};
+
+export default TaskPopup;
+

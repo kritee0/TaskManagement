@@ -40,7 +40,7 @@ const TaskListUI = ({ tasks, taskData }) => {
       </div>
       {showDetail && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 ">
-          <div className="max-w-2xl w-full h-[80%]   rounded-xl border-white shadow-lg">
+          <div className="max-w-md w-full h-[80%]   rounded-xl border-white shadow-lg">
             <TaskDetail setShowDetail={setShowDetail} />
           </div>
         </div>

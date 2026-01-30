@@ -20,7 +20,9 @@ const resetForm = () => {// we reset since whee data store
     remainderDate: "",
     priority: "",
     status: "pending", 
-    completed: false,  
+    completed: false, 
+    projectId:"",
+
     category: "",
     subTasks: [],
   });
@@ -38,6 +40,7 @@ const handleAddTask=()=>{
     remainderDate:"",
     priority:"",
     status:"pending",//default
+    projectId:"",
     completed:false,//default
     category:"",
     subTasks:[],

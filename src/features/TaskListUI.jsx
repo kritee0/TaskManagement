@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import TaskDetail from "../features/TkModel/TaskDetail"
+import { useNavigate, useParams } from "react-router-dom";
+
 const TaskListUI = ({ tasks, taskData }) => {
+  const navigate=useNavigate()
+
   const [showDetail, setShowDetail] = useState(false);
+
   return (
     <>
       <div className="">
@@ -26,7 +31,7 @@ const TaskListUI = ({ tasks, taskData }) => {
                 key={index}
                 className="hover:bg-gray-50  border-gray-500 shadow-2xl"
                 onClick={() => {
-                  setShowDetail(true);
+                navigate(`/taskManager/${task.id}`)
                 }}
               >
                 <td className="p-4 border border-gray-100">{task.title}</td>
@@ -41,7 +46,7 @@ const TaskListUI = ({ tasks, taskData }) => {
       {showDetail && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 ">
           <div className="max-w-md w-full h-[80%]   rounded-xl border-white shadow-lg">
-            <TaskDetail setShowDetail={setShowDetail} />
+            <TaskDetail setShowDetail={setShowDetail} taskData={taskData} />
           </div>
         </div>
       )}

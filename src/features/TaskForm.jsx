@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import TaskButton from '../components/Button'
 import { BiCategoryAlt } from "react-icons/bi";
-import DatePicker from '@/components/DatePicker';
+
+import TaskPopup from './model/TaskPopup';
 
 
 
 const TaskForm = ({title,setTaskData,handleAddTask}) => { 
-  const[taskStartDate,setTaskStartDate]=useState(null)
-  const[openDate,setOpenDate]=useState(false)
- 
+
   return (
-    
+    <>
+    <TaskPopup>
     <div className=' max-w-md  w-full h-40 border-2 border-gray-300 p-4  rounded-2xl  shadow-2xl '>
       <div className=' flex flex-col mb-4'>
         <div className='  flex justify-between   '>
@@ -24,11 +24,13 @@ const TaskForm = ({title,setTaskData,handleAddTask}) => {
         </div>  
         <div className='flex justify-between'>
             <TaskButton icon={<BiCategoryAlt color='white' size={24} />} className=' rounded-md bg-gray-900' />
-            <DatePicker date={taskStartDate} setDate={setTaskStartDate}/>
+           
          
           <TaskButton text="Save" className='bg-blue-500' onClick={handleAddTask}/>        
         </div>
     </div>
+    </TaskPopup>
+    </>
   )
 }
 

@@ -9,10 +9,10 @@ const Sidebar = () => {
     { to: "/projects", label: "Projects", icon: TbCategoryPlus },
   ];
  return (
-    <div className="sticky top-0 w-44 max-w-md h-screen shadow-2xl flex flex-col  bg-gray-700   rounded-tr-lg  mt-4  z-40"> 
+    <div className="sticky top-0 w-36 max-w-md h-screen shadow-2xl flex flex-col  bg-blue-900   rounded-tr-full mt-10  z-40"> 
      
 
-      <nav className="flex flex-col   mt-20 px-4  gap-y-6">
+      <nav className="flex flex-col   mt-30 px-4  gap-y-6">
 
         
         {sidebarLinks.map(({ to, label, icon: Icon }) => (

@@ -6,18 +6,18 @@ const DatePickerInput = () => {
   const [selectedDate, setSelectedDate] = useState(null);
 
   return (
-    <div className="relative w-64">
-      {/* Input field */}
+    <div className="relative w-28">
+    
       <input
         type="text"
         value={selectedDate ? selectedDate.toDateString() : ""}
         placeholder="Select date"
-        onFocus={() => setCalendarOpen(true)} // open calendar when input is focused
+        onFocus={() => setCalendarOpen(prev=>!prev)} 
         readOnly
         className="border p-2 rounded w-full cursor-pointer"
       />
 
-      {/* Calendar popup */}
+    
       {calendarOpen && (
         <div className="absolute z-50 mt-1 bg-white border rounded shadow-lg">
           <Calendar
@@ -25,7 +25,7 @@ const DatePickerInput = () => {
             selected={selectedDate}
             onSelect={(date) => {
               setSelectedDate(date);
-              setCalendarOpen(false); // close after selecting
+              setCalendarOpen(false); 
             }}
           />
         </div>

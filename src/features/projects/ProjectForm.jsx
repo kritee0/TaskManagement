@@ -14,27 +14,26 @@ const ProjectForm = () => {
  '>
       <div className='text-center  mb-4 text-2xl font-roboto '>
      <h2 className=' font-bold'>ProjectForm</h2>
-     </div>
-     {/* <div className='flex justify-end-safe'>
-        <button className='bg-gray-200 font-roboto px-3 py-1 rounded-xs'>Status</button>
-     </div>
-  */}
-     <div className=' text-md font-roboto'>
-       <label className=''>AddProject:</label>
+     </div> 
+     <div className=' text-md font-roboto '>
+          <label className='mb-2'>AddProject:</label>
              <input type="text" placeholder='addProject' value={projectName}  onChange={(e)=>{setProjectName(e.target.value)}}   className='outline-2 outline-gray-400 p-2 rounded-md w-full ' />  
              </div> 
-            <div className=' flex justify-between '>
-               <DatePicker date={startDate} setDate={setStartDate}/>
+            <div className=' flex flex-col'>
+              
+                   <label className='mb-2'>StartDate</label>
+               <DatePicker date={startDate} setDate={setStartDate} />
+              
+             
+                   <label className='mb-2'>DeadlineDate</label>
                 <DatePicker date={startDate} setDate={setStartDate}/>
+            
+              
+              
              
             </div>
-            <span>Assign Team Member</span>
-             <input type="text" placeholder='addProject' value={projectName}  onChange={(e)=>{setProjectName(e.target.value)}}   className='outline-2 outline-gray-400 p-2 rounded-md w-full ' />
-              <span>Project Task</span>
-             <input type="text" placeholder='addProject' value={projectName}  onChange={(e)=>{setProjectName(e.target.value)}}   className='outline-2 outline-gray-400 p-2 rounded-md w-full ' />
-
-            <span>Attachment Link</span>
-               <input type="text" placeholder='addProject' value={projectName}  onChange={(e)=>{setProjectName(e.target.value)}}   className='outline-2 outline-gray-400 p-2 rounded-md w-full ' />
+        
+           
 
 
         <TaskButton   text="Add" onClick={addProject}/>

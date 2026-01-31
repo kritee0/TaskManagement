@@ -11,6 +11,7 @@ import Rootlayout from "./layout/RootLayout"
 import Dashboard from "./pages/Dashbaord"
 import ProjectPage from "./pages/ProjectPage"; 
 import Taskpage from "./pages/Taskpage";
+import TaskDetail from "./features/TkModel/TaskDetail";
 // import 'react-toastify/dist/ReactToastify.css';
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="projects" element={<ProjectPage />} />
   
       <Route path="taskManager" element={<Taskpage />} />
+      <Route path="taskManager/:id" element={<TaskDetail/>}/>
   
     
      

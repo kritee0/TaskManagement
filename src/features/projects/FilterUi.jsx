@@ -12,7 +12,7 @@ const FilterUi = ({ className }) => {
   ];
 
   return (
-    <div className='max-w-full w-full h-auto bg-white p-4 font-roboto'>
+    <div className='max-w-full w-full h-auto p-4 font-roboto'>
       <div className='flex items-center mb-4 gap-4 flex-wrap justify-between'>
         {filterName.map((item, index) => {
           const Icon = item.icon; 

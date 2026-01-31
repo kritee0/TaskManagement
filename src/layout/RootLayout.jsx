@@ -12,10 +12,10 @@ const Rootlayout = () => {
         <Navbar/>
  
    
-    <main className='flex   '>
+    <main className='flex bg-white gap-3 '>
       <Sidebar/>
       
-      <div className='flex-1 p-4'>
+      <div className='flex-1 p-5 '>
     
     <Outlet/> 
     </div>

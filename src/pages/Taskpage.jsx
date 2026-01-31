@@ -3,6 +3,7 @@ import AddTask from '../features/TaskForm';
 import TaskButton from '../components/Button';
 import useTask from '../hook/useTask';
 import TaskListUI from '../features/TaskListUI.JSX';
+import FilterUi from '@/features/projects/FilterUi';
 
 
 const Taskpage = () => {
@@ -53,10 +54,21 @@ const handleAddTask=()=>{
 }
   return (
     
-    <>    
-      <div className='flex justify-end '> 
-       
-          <TaskButton text="+AddTask" onClick={()=>setShowTaskBtn(prev=>!prev)} className='bg-gray-800 rounded-2xl' />  
+    <> 
+    <div className=' justify-end'>  
+      <div className='flex  max-w-full rounded-3xl   bg-blue-50  shadow-2xl '> 
+       <div className='flex-2'>
+           <FilterUi/>   
+
+       </div>
+       <div className='flex-[0.5]'>
+        <TaskButton text="+" onClick={()=>setShowTaskBtn(prev=>!prev)} className='bg-gray rounded-2xl text-black outline-none ' />  
+         
+       </div>
+         
+          </div>
+          
+        
           </div>
 
           {showTaskBtn &&(

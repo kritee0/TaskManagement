@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
+import { MdOutlineDateRange } from "react-icons/md";
 
 const DatePickerInput = () => {
   const [calendarOpen, setCalendarOpen] = useState(false);
@@ -8,14 +9,16 @@ const DatePickerInput = () => {
   return (
     <div className="relative w-28">
     
-      <input
+      {/* <input
         type="text"
         value={selectedDate ? selectedDate.toDateString() : ""}
         placeholder="Select date"
-        onFocus={() => setCalendarOpen(prev=>!prev)} 
+       
         readOnly
         className="border p-2 rounded w-full cursor-pointer"
-      />
+      /> */}
+
+      <MdOutlineDateRange  size={24} color="white"  onClick={() => setCalendarOpen(prev=>!prev)} />
 
     
       {calendarOpen && (

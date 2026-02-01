@@ -1,6 +1,6 @@
 import React ,{useState,useEffect}from 'react' // this is parent page i ahev made i am passing props from aprent to child now
 import AddTask from '../features/TaskForm';
-import TaskButton from '../components/Button';
+import TaskButton from '../components/ui/reuse/Button';
 import useTask from '../hook/useTask';
 import TaskListUI from '../features/TaskListUI.JSX';
 import FilterUi from '@/features/projects/FilterUi';
@@ -13,42 +13,17 @@ const Taskpage = () => {
 
 const resetForm = () => {// we reset since whee data store
   setTaskData({
-    title: "",
-    description: "",
-    createdAt: "",
-    scheduleDate: "",
-    dueDate: "",
-    remainderDate: "",
-    priority: "",
-    status: "pending", 
-    completed: false, 
-    projectId:"",
-
-    category: "",
-    subTasks: [],
+   ...taskData
   });
 };
 
-
 const handleAddTask=()=>{
   if(!taskData.title.trim()) return;
-  const abcd={ 
-    title:taskData.title,
-    description:"",
-    createdAt:new Date().toISOString(),
-    scheduleDate:"",
-    dueDate:"",
-    remainderDate:"",
-    priority:"",
-    status:"pending",//default
-    projectId:"",
-    completed:false,//default
-    category:"",
-    subTasks:[],
-  }
-  addTask(abcd)
-
-  // setTaskData(abcd)
+ addTask({
+    ...taskData,
+    createdAt: new Date().toISOString()
+  });
+  console.log(taskData)
   resetForm();
   setShowTaskBtn(false)
 }
@@ -70,13 +45,12 @@ const handleAddTask=()=>{
           
         
           </div>
-
           {showTaskBtn &&(
             <div className='flex justify-center'>
              <AddTask
               title={taskData.title}
               setTaskData={setTaskData}
-              category={taskData.category} 
+              ProjectName={taskData.projectName} 
               handleAddTask={handleAddTask}/> 
               </div>
           )}

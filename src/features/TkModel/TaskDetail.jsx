@@ -9,11 +9,8 @@ const TaskDetail = ({setShowDetail}) => {
   const { taskData,setTaskData,updateDescription}=useTask()
   return (
 
-  <>
-   
-     
+  <>   
       <DetailUi setShowDetail={setShowDetail} taskData={taskData} setTaskData={setTaskData} updateDescription={updateDescription} subTask={taskData.subTasks}/>
-
    
     </> 
      

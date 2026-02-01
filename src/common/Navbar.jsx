@@ -9,11 +9,11 @@ const Navbar = () => {
       <header className="  h-16 w-full sticky top-0 inset-0  bg-gray-100  flex justify-between px-3   items-center z-50   ">
         <nav className="flex w-full  items-center align-center   ">
           <div className="mr-auto">
-            <img
+            {/* <img
               src={Tmm}
               alt="tms"
               className=" w-16 h-16 rounded-full  object-cover"
-            />
+            /> */}
           </div>
 
           <Search />

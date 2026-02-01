@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TaskDetail from "../features/TkModel/TaskDetail"
 import { useNavigate, useParams } from "react-router-dom";
+import { SelectDemo } from "@/components/ui/reuse/SelectDemo";
 
 const TaskListUI = ({ tasks, taskData }) => {
   const navigate=useNavigate()
@@ -9,11 +10,15 @@ const TaskListUI = ({ tasks, taskData }) => {
 
   return (
     <>
-      <div className="">
-        <h2 className=" font-roboto text-gray-800 font-medium text-xl">
+      <div className=" mt-10">
+        <div className="flex justify-between">
+          <h2 className=" font-roboto text-gray-800 font-medium text-xl ">
           {" "}
           Your TaskList
         </h2>
+        <SelectDemo/>
+        </div>
+        
 
         <table className=" table-auto mt-4  w-full rounded-2xl">
           <thead>

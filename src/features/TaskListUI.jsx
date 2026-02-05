@@ -2,21 +2,37 @@ import React, { useState } from "react";
 import TaskDetail from "../features/TkModel/TaskDetail"
 import { useNavigate, useParams } from "react-router-dom";
 import { SelectDemo } from "@/components/ui/reuse/SelectDemo";
-
-const TaskListUI = ({ tasks, taskData }) => {
+import TaskButton from "@/components/ui/reuse/Button";
+import AddTask from"../features/TaskForm"
+const TaskListUI = ({ tasks, taskData,setTaskData,handleAddTask }) => {
   const navigate=useNavigate()
 
   const [showDetail, setShowDetail] = useState(false);
+    const[showTaskBtn,setShowTaskBtn]=useState(false)
 
   return (
     <>
       <div className=" mt-10">
-        <div className="flex justify-between">
+        <div className="flex ">
           <h2 className=" font-roboto text-gray-800 font-medium text-xl ">
           {" "}
           Your TaskList
         </h2>
-        <SelectDemo/>
+         <div className=' flex ml-auto gap-2'>
+        <TaskButton text="+" onClick={()=>setShowTaskBtn(prev=>!prev)} className='bg-gray rounded-2xl text-black outline-none ' />  
+           <SelectDemo/>
+       </div>
+          {showTaskBtn &&(
+                   <div className='flex justify-center'>
+                    <AddTask
+                     title={taskData.title}
+                     setTaskData={setTaskData}
+                     ProjectName={taskData.projectName} 
+                     handleAddTask={handleAddTask}/> 
+                     </div>
+                 )}
+         
+      
         </div>
         
 

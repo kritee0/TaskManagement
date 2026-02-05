@@ -6,6 +6,9 @@ import { useParams } from "react-router-dom";
 import DatePickerInput from "@/components/ui/reuse/DatePicker";
 import TaskButton from "@/components/ui/reuse/Button";
 import SubTaskForm from "./SubTaskForm";
+import { SelectDemo } from "@/components/ui/reuse/SelectDemo";
+import Status from "@/features/task/Status";
+
 
 const DetailUi = ({ setShowDetail, taskData, updateDescription, subTasks }) => {
   const [openSubTask, setOpenSubTask] = useState(false);
@@ -41,7 +44,8 @@ const DetailUi = ({ setShowDetail, taskData, updateDescription, subTasks }) => {
          
           <div className="flex justify-between items-center">
             <span className="text-2xl font-semibold">{taskData.title}</span>
-            <button className="bg-blue-950 px-3 py-1 rounded-md text-white">Status</button>
+            {/* <button className="bg-blue-950 px-3 py-1 rounded-md text-white">Status</button> */}
+           <Status/>
           </div>
 
        
@@ -101,7 +105,7 @@ const DetailUi = ({ setShowDetail, taskData, updateDescription, subTasks }) => {
 
        
         <div className="flex-[0.5] flex flex-col border-2 bg-gray-700 p-4 gap-4 rounded-2xl shadow-xl">
-          <TaskButton text="Priority" className="bg-blue-200 text-black" />
+          <SelectDemo></SelectDemo>
           <div className="flex flex-col gap-2">
             <span className="text-white">Task Schedule</span>
             <DatePickerInput date={taskData.schedule} setDate={() => {}} />

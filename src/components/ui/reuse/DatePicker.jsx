@@ -29,6 +29,8 @@ const DatePickerInput = () => {
             onSelect={(date) => {
               setSelectedDate(date);
               setCalendarOpen(false); 
+              
+              console.log(date)
             }}
           />
         </div>

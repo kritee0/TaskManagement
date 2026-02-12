@@ -4,11 +4,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { SelectDemo } from "@/components/ui/reuse/SelectDemo";
 import TaskButton from "@/components/ui/reuse/Button";
 import AddTask from"../features/TaskForm"
-const TaskListUI = ({ tasks, taskData,setTaskData,handleAddTask }) => {
+const TaskListUI = ({ tasks, taskData,setTaskData,handleAddTask ,showTaskBtn,setShowTaskBtn }) => {
   const navigate=useNavigate()
 
   const [showDetail, setShowDetail] = useState(false);
-    const[showTaskBtn,setShowTaskBtn]=useState(false)
+ 
 
   return (
     <>
@@ -67,7 +67,7 @@ const TaskListUI = ({ tasks, taskData,setTaskData,handleAddTask }) => {
       {showDetail && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 ">
           <div className="max-w-md w-full h-[80%]   rounded-xl border-white shadow-lg">
-            <TaskDetail setShowDetail={setShowDetail} taskData={taskData} />
+            <TaskDetail setShowDetail={setShowDetail} taskData={taskData}  />
           </div>
         </div>
       )}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { CiLineHeight } from "react-icons/ci";
 import { IoMdMore } from "react-icons/io";
@@ -10,30 +10,36 @@ import { SelectDemo } from "@/components/ui/reuse/SelectDemo";
 import Status from "@/features/task/Status";
 
 
-const DetailUi = ({ setShowDetail, taskData, updateDescription, subTasks }) => {
+const DetailUi = ({ setShowDetail,taskData, tasks,updateDescription, subTasks }) => {
   const [openSubTask, setOpenSubTask] = useState(false);
   const [openSidePanel, setOpenSidePanel] = useState(false);
   const [subTaskDate, setSubTaskDate] = useState(new Date());
   const [subTaskDueDate, setSubTaskDueDate] = useState(new Date());
   const { id } = useParams();
 
-  const close = () => setShowDetail(false);
+  const close = () => {
+  setShowDetail(false);
+};
+const data=tasks.find(t=>t.id===(id))
+
+useEffect(() => {
+  console.log("id type:", typeof id, "id value:", id);
+}, [id]);
 
   const handleKey = (e) => {
     if (e.key === "Enter") {
       updateDescription(taskData.id, taskData.description);
     }
   };
-
   return (
     <div className="max-w-full w-full p-4 border-2 flex flex-col gap-6 bg-white">
-      {/* Header */}
+ 
       <div className="flex justify-between items-center">
         <h2 className="text-black font-bold text-xl">Task Detail</h2>
         <RxCross1 onClick={close} color="black" size={28} className="cursor-pointer" />
       </div>
 
-      {/* Main content */}
+
       <div className="flex gap-8">
       
         <div className="flex-2 flex flex-col gap-6 w-full">
@@ -43,9 +49,9 @@ const DetailUi = ({ setShowDetail, taskData, updateDescription, subTasks }) => {
 
          
           <div className="flex justify-between items-center">
-            <span className="text-2xl font-semibold">{taskData.title}</span>
+            <span className="text-2xl font-semibold">{data?.title}</span>
             {/* <button className="bg-blue-950 px-3 py-1 rounded-md text-white">Status</button> */}
-           <Status/>
+           <Status  taskId={data?.id}/>
           </div>
 
        
@@ -54,7 +60,7 @@ const DetailUi = ({ setShowDetail, taskData, updateDescription, subTasks }) => {
             <div className="w-full h-3 bg-green-900 rounded-2xl mt-1">
               <div
                 className="h-3 bg-green-950 rounded-2xl"
-                style={{ width: `${taskData.progress ?? 0}%` }}
+                style={{ width: `${data?.progress ?? 0}%` }}
               ></div>
             </div>
           </div>

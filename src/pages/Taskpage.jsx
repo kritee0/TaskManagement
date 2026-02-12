@@ -7,6 +7,8 @@ import FilterUi from '@/features/projects/FilterUi';
 
 
 const Taskpage = () => {
+  const[showTaskBtn,setShowTaskBtn]=useState(false)
+ 
   const {addTask,tasks,taskData,setTaskData}=useTask()//here tasks is list of all the array or database we can called
  
 
@@ -41,7 +43,7 @@ const handleAddTask=()=>{
         
           </div>
        
-          <TaskListUI tasks={tasks} taskData={taskData}  setTaskData={setTaskData} handleAddTask={handleAddTask}
+          <TaskListUI tasks={tasks} taskData={taskData}  setTaskData={setTaskData} handleAddTask={handleAddTask} showTaskBtn={showTaskBtn}  setShowTaskBtn={setShowTaskBtn}
         />
       </>
      

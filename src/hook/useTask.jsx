@@ -39,29 +39,53 @@ useEffect(()=>{
     setTasks(prev=>[...prev,createdTask])
 
   }
+
+
  
-const updateDescription = async (taskid, newDescription) => {
-  if (!newDescription) return;
+ const updateTask=async(taskid,updates)=>{
+  try{
+const res= await fetch(`http://localhost:5000/tasks/${taskid}`,{
+  method:"PATCH",
+  headers:{"Content-Type":"application/json"},
+  body:JSON.stringify(updates) 
+  })
+  const updated= await res.json();
+  setTasks(prev=> prev.map(task=>task.id===taskid?{...task,...updated}:task))
 
-  // PATCH request to json-server
-  const res = await fetch(`http://localhost:5000/tasks/${taskid}`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ description: newDescription }) 
-  });
 
-  const updatedTask = await res.json();
+}
+catch(err){
+console.log("error when updating",err)  
+}
+}
 
-  setTasks(prev =>
-    prev.map(task => (task.id === taskid ? updatedTask : task))
-  );
-};
+
+const deleteTask=async(taskid)=>{
+  try{
+    const res= await fetch (`http://localhost:5000/tasks/${taskid}`,{
+      method:"DELETE",
+    
+      
+
+    })
+    setTasks(prev=>prev.filter(task=>task.id !== taskid))
+
+  } catch(err){
+    console.log("Error When Deleting",err)
+
+  }
+
+
+}
+
+
 
   return {
     tasks,
+    setTasks,
     addTask,
-  updateDescription,
-  
+    updateTask,  
+    deleteTask,
     taskData,
     setTaskData 
   }

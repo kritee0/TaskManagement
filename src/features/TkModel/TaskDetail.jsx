@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TaskPopup from '../model/TaskPopup'
 import DetailUi from './DetailUi'
 
@@ -6,11 +6,16 @@ import useTask from '../../hook/useTask'
 
 
 const TaskDetail = ({setShowDetail}) => {
-  const { taskData,setTaskData,updateDescription}=useTask()
+
+  const { tasks,setTasks, taskData,setTaskData,updateDescription}=useTask()
+  useEffect(()=>{
+    console.log("task heelo is",taskData)
+
+  },)
   return (
 
   <>   
-      <DetailUi setShowDetail={setShowDetail} taskData={taskData} setTaskData={setTaskData} updateDescription={updateDescription} subTask={taskData.subTasks}/>
+      <DetailUi setShowDetail={setShowDetail} tasks={tasks} setTasks={setTasks }  taskData={taskData} setTasksData={setTaskData}  updateDescription={updateDescription} subTask={taskData.subTasks}/>
    
     </> 
      
